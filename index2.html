@@ -1,0 +1,1455 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AussieFaces - Professional Face Painting Across Australia</title>
+<!-- Load Tailwind CSS from CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* Custom colors */
+:root {
+--aussie-green: #00D16E;
+--aussie-gold: #FFD700;
+--aussie-blue: #00A8FF;
+--aussie-red: #FF4D6D;
+--aussie-purple: #B347EA;
+--aussie-orange: #FF8A00;
+--aussie-pink: #FF5EDF;
+--aussie-teal: #00D4C8;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@400;600;700&display=swap');
+
+body {
+font-family: 'Poppins', sans-serif;
+overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+font-family: 'Fredoka One', cursive;
+letter-spacing: 1px;
+}
+
+/* Gradient backgrounds */
+.bg-aussie-gradient {
+background: linear-gradient(90deg, var(--aussie-green), var(--aussie-blue), var(--aussie-purple));
+background-size: 200% 200%;
+animation: gradientShift 10s ease infinite;
+}
+
+.bg-festival-gradient {
+background: linear-gradient(135deg, var(--aussie-purple), var(--aussie-pink), var(--aussie-red));
+background-size: 200% 200%;
+animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+0% { background-position: 0% 50%; }
+50% { background-position: 100% 50%; }
+100% { background-position: 0% 50%; }
+}
+
+/* Animations */
+.animate-float {
+animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+0% { transform: translateY(0px) rotate(0deg); }
+50% { transform: translateY(-20px) rotate(5deg); }
+100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.animate-pulse-scale {
+animation: pulseScale 3s ease-in-out infinite;
+}
+
+@keyframes pulseScale {
+0% { transform: scale(1); }
+50% { transform: scale(1.05); }
+100% { transform: scale(1); }
+}
+
+.animate-fadeIn {
+animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+/* Color-changing text */
+.rainbow-text {
+background-image: linear-gradient(to right, 
+var(--aussie-red), 
+var(--aussie-orange), 
+var(--aussie-gold), 
+var(--aussie-green), 
+var(--aussie-teal), 
+var(--aussie-blue), 
+var(--aussie-purple), 
+var(--aussie-pink));
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+animation: rainbow 6s linear infinite;
+background-size: 400% 100%;
+}
+
+@keyframes rainbow {
+0% { background-position: 0% 50%; }
+100% { background-position: 100% 50%; }
+}
+
+/* Colorful borders */
+.border-rainbow {
+border-width: 6px;
+border-style: solid;
+border-image: linear-gradient(to right, 
+var(--aussie-red), 
+var(--aussie-orange), 
+var(--aussie-gold), 
+var(--aussie-green), 
+var(--aussie-blue), 
+var(--aussie-purple)) 1;
+animation: borderChange 6s linear infinite;
+background-size: 400% 100%;
+}
+
+@keyframes borderChange {
+0% { border-image-source: linear-gradient(to right, 
+var(--aussie-red), 
+var(--aussie-orange), 
+var(--aussie-gold), 
+var(--aussie-green), 
+var(--aussie-blue), 
+var(--aussie-purple)) 1; }
+50% { border-image-source: linear-gradient(to right, 
+var(--aussie-purple), 
+var(--aussie-blue), 
+var(--aussie-green), 
+var(--aussie-gold), 
+var(--aussie-orange), 
+var(--aussie-red)) 1; }
+100% { border-image-source: linear-gradient(to right, 
+var(--aussie-red), 
+var(--aussie-orange), 
+var(--aussie-gold), 
+var(--aussie-green), 
+var(--aussie-blue), 
+var(--aussie-purple)) 1; }
+}
+
+/* Custom button styles */
+.btn-aussie {
+background: linear-gradient(to right, var(--aussie-purple), var(--aussie-blue));
+color: white;
+font-weight: bold;
+border-radius: 50px;
+padding: 16px 32px;
+transition: all 0.3s ease;
+box-shadow: 0 10px 25px rgba(179, 71, 234, 0.4);
+position: relative;
+overflow: hidden;
+z-index: 1;
+}
+
+.btn-aussie:before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(to right, var(--aussie-blue), var(--aussie-green));
+z-index: -1;
+transition: opacity 0.5s ease-in-out;
+opacity: 0;
+}
+
+.btn-aussie:hover:before {
+opacity: 1;
+}
+
+.btn-aussie:hover {
+transform: translateY(-5px);
+box-shadow: 0 15px 30px rgba(0, 168, 255, 0.5);
+}
+
+.btn-outline {
+background: transparent;
+border: 3px solid white;
+color: white;
+font-weight: bold;
+border-radius: 50px;
+padding:.16px 32px;
+transition: all 0.3s ease;
+position: relative;
+overflow: hidden;
+z-index: 1;
+}
+
+.btn-outline:before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 0;
+height: 100%;
+background: white;
+z-index: -1;
+transition: width 0.4s ease-in-out;
+}
+
+.btn-outline:hover:before {
+width: 100%;
+}
+
+.btn-outline:hover {
+color: var(--aussie-purple);
+transform: translateY(-5px);
+}
+
+/* Card hover effects */
+.card-3d-effect {
+transition: all 0.5s ease;
+transform-style: preserve-3d;
+}
+
+.card-3d-effect:hover {
+transform: rotateY(5deg) rotateX(5deg) translateY(-10px);
+box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+}
+
+/* Image hover zoom */
+.hover-zoom img {
+transition: transform 0.6s ease;
+}
+
+.hover-zoom:hover img {
+transform: scale(1.15);
+}
+
+/* Paint splatter backgrounds */
+.paint-splatter {
+position: relative;
+}
+
+.paint-splatter::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-image: 
+radial-gradient(circle at 10% 20%, rgba(255, 77, 109, 0.15) 0%, rgba(255, 77, 109, 0) 20%),
+radial-gradient(circle at 30% 70%, rgba(0, 168, 255, 0.15) 0%, rgba(0, 168, 255, 0) 25%),
+radial-gradient(circle at 90% 40%, rgba(179, 71, 234, 0.15) 0%, rgba(179, 71, 234, 0) 30%),
+radial-gradient(circle at 70% 90%, rgba(0, 209, 110, 0.15) 0%, rgba(0, 209, 110, 0) 35%),
+radial-gradient(circle at 60% 10%, rgba(255, 215, 0, 0.15) 0%, rgba(255, 215, 0, 0) 20%);
+z-index: -1;
+}
+
+/* Glowing effect */
+.glow-on-hover {
+transition: all 0.3s ease;
+}
+
+.glow-on-hover:hover {
+box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+}
+
+/* Animated background patterns */
+.animated-bg {
+background-color: #ffffff;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23FF4D6D' fill-opacity='0.05'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%2300A8FF' fill-opacity='0.05' fill-rule='nonzero'%3E%3Cpath d='M29 58.58l7.38-7.39A30.95 30.95 0 0 1 29 37.84a30.95 30.95 0 0 1-7.38 13.36l7.37 7.38zm1.4 1.41l.01.01h-2.84l-7.37-7.38A30.95 30.95 0 0 1 6.84 60H0v-1.02a28.9 28.9 0 0 0 18.79-7.78L0 32.41v-4.84L18.78 8.79A28.9 28.9 0 0 0 0 1.02V0h6.84a30.95 30.95 0 0 1 13.35 7.38L27.57 0h2.84l7.39 7.38A30.95 30.95 0 0 1 53.16 0H60v1.02a28.9 28.9 0 0 0-18.79 7.78L60 27.57v4.84L41.22 51.2A28.9 28.9 0 0 0 60 58.98V60h-6.84a30.95 30.95 0 0 1-13.37-7.4L30.4 60zm-1.4-22.76L54.57 11.43A28.9 28.9 0 0 0 31.45 3.38L23.6 11.23a33.02 33.02 0 0 1 5.38 9.74c.17.5.3 1.03.42 1.55L45.15 8.8a28.9 28.9 0 0 0-9.71 21.63zm-2.53-11a33.02 33.02 0 0 1 3.18 5.42c.14.33.45.58.81.58a1 1 0 0 0 1-1c0-.05 0-.1-.02-.16a33.02 33.02 0 0 0-3.97-7.72L23.6 11.22a33.02 33.02 0 0 0-5.38 9.74c-.17.5-.3 1.03-.42 1.55L5.05 35.4a28.9 28.9 0 0 0 9.71 21.63l12.71-12.7a33.02 33.02 0 0 0-3.18-5.42c-.14-.33-.45-.58-.81-.58a1 1 0 0 0-1 1c0 .05 0 .1.02.16a33.02 33.02 0 0 1 3.97 7.72l-12.39 12.39A28.9 28.9 0 0 1 5.3 48.8L17.86 36.2c.45.21.91.41 1.38.6l9.19-9.19A33.02 33.02 0 0 1 26.07 20a33.02 33.02 0 0 0-1.38-.6l-9.2 9.2c-.18-.23-.35-.47-.5-.72L26.48 16.4a28.9 28.9 0 0 1 9.71 21.63L22.38 51.85a28.9 28.9 0 0 1-9.09-2.35L24.85 38c.2.46.4.92.6 1.38L13.19 51.66a28.9 28.9 0 0 1-7.9-9.98L16.51 30.5a33.02 33.02 0 0 1-5.38-9.74c-.17-.5-.3-1.03-.42-1.55L5.05 24.1a28.9 28.9 0 0 0 2.35 9.08l-.5.72L1.02 28A28.9 28.9 0 0 0 0 31.16v-4.84L4.82 22a30.95 30.95 0 0 1 4.78-7.23L22.4 3c-.4.58-.75 1.16-1.06 1.76L11.23 15a31.35 31.35 0 0 0-3.57 7H4.32L0 26.43v-4.84L8.8 14.82A30.95 30.95 0 0 1 22.17 1.02V0H28v1.02a30.95 30.95 0 0 1 13.34 7.38L48.8 0h6.84a30.95 30.95 0 0 1-13.35 7.38L30.4 18.77a31.35 31.35 0 0 0-3.57-7L16.71 1.56c-.31-.6-.66-1.18-1.06-1.76L22.4 3a30.95 30.95 0 0 1 4.78 7.23L31.84 6h7.64l.02.02a30.95 30.95 0 0 1-4.78 7.23L27.57 18.77z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%2300D16E' fill-opacity='0.05'%3E%3Cpath fill-rule='evenodd' d='M0 0h40v40H0V0zm40 40h40v40H40V40zm0-40h2l-2 2V0zm0 4l4-4h2l-6 6V4zm0 4l8-8h2L40 10V8zm0 4L52 0h2L40 14v-2zm0 4L56 0h2L40 18v-2zm0 4L60 0h2L40 22v-2zm0 4L64 0h2L40 26v-2zm0 4L68 0h2L40 30v-2zm0 4L72 0h2L40 34v-2zm0 4L76 0h2L40 38v-2zm0 4L80 0v2L42 40h-2zm4 0L80 4v2L46 40h-2zm4 0L80 8v2L50 40h-2zm4 0l28-28v2L54 40h-2zm4 0l24-24v2L58 40h-2zm4 0l20-20v2L62 40h-2zm4 0l16-16v2L66 40h-2zm4 0l12-12v2L70 40h-2zm4 0l8-8v2l-6 6h-2zm4 0l4-4v2l-2 2h-2z'/%3E%3C/g%3E%3C/svg%3E");
+animation: backgroundMove 60s linear infinite;
+}
+
+@keyframes backgroundMove {
+0% { background-position: 0% 0%; }
+100% { background-position: 100% 100%; }
+}
+
+/* Neon text effect */
+.neon-text {
+color: #fff;
+text-shadow: 
+0 0 5px #fff, 
+0 0 10px #fff, 
+0 0 20px var(--aussie-purple), 
+0 0 30px var(--aussie-purple), 
+0 0 40px var(--aussie-purple);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+width: 12px;
+}
+
+::-webkit-scrollbar-track {
+background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+background: linear-gradient(var(--aussie-purple), var(--aussie-green));
+border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: linear-gradient(var(--aussie-green), var(--aussie-blue));
+}
+
+/* Testimonial slide styling */
+.testimonial-slide {
+transition: all 0.5s ease;
+}
+</style>
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+    'aussie-green': '#00D16E',
+    'aussie-gold': '#FFD700',
+    'aussie-blue': '#00A8FF',
+    'aussie-red': '#FF4D6D',
+    'aussie-purple': '#B347EA',
+    'aussie-orange': '#FF8A00',
+    'aussie-pink': '#FF5EDF',
+    'aussie-teal': '#00D4C8',
+}
+}
+}
+}
+</script>
+</head>
+<body class="font-sans text-gray-800 animated-bg">
+<!-- Decorative top ribbon -->
+<div class="fixed top-0 left-0 right-0 h-2 z-50 bg-aussie-gradient"></div>
+
+<!-- Hero Section -->
+<header class="relative min-h-screen flex items-center justify-center bg-fixed bg-center bg-cover overflow-hidden" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/api/placeholder/1200/600')">
+<!-- Diagonal rainbow divider at the top -->
+<div class="absolute top-0 left-0 right-0 h-16 bg-gradient-to-r from-aussie-red via-aussie-orange via-aussie-gold via-aussie-green via-aussie-blue to-aussie-purple" style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0);"></div>
+
+<nav class="absolute top-4 left-0 right-0 px-4 py-5 flex justify-between items-center z-10">
+<div class="flex items-center">
+<span class="text-white text-4xl font-bold neon-text"><span class="rainbow-text">Aussie</span>Faces</span>
+</div>
+<div class="hidden md:flex space-x-10">
+<a href="#services" class="text-white hover:text-aussie-gold transition font-bold text-xl">Services</a>
+<a href="#gallery" class="text-white hover:text-aussie-gold transition font-bold text-xl">Gallery</a>
+<a href="#about" class="text-white hover:text-aussie-gold transition font-bold text-xl">About Us</a>
+<a href="#contact" class="text-white hover:text-aussie-gold transition font-bold text-xl">Contact</a>
+</div>
+<button id="mobile-menu-button" class="md:hidden text-white">
+<i class="fas fa-paint-brush text-3xl"></i>
+</button>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="fixed inset-0 bg-gradient-to-r from-aussie-purple to-aussie-blue bg-opacity-95 z-50 flex flex-col items-center justify-center hidden">
+<button id="close-menu" class="absolute top-5 right-5 text-white">
+<i class="fas fa-times text-3xl"></i>
+</button>
+<div class="flex flex-col space-y-8 items-center">
+<a href="#services" class="text-white text-2xl hover:text-aussie-gold transition font-bold neon-text">Services</a>
+<a href="#gallery" class="text-white text-2xl hover:text-aussie-gold transition font-bold neon-text">Gallery</a>
+<a href="#about" class="text-white text-2xl hover:text-aussie-gold transition font-bold neon-text">About Us</a>
+<a href="#contact" class="text-white text-2xl hover:text-aussie-gold transition font-bold neon-text">Contact</a>
+</div>
+</div>
+
+<!-- Colorful floating shapes -->
+<div class="absolute inset-0 overflow-hidden pointer-events-none">
+<div class="absolute top-20 left-10 w-24 h-24 rounded-full bg-aussie-red opacity-60 animate-float" style="animation-delay: 0s;"></div>
+<div class="absolute top-40 right-20 w-32 h-32 rounded-full bg-aussie-blue opacity-60 animate-float" style="animation-delay: 0.5s;"></div>
+<div class="absolute bottom-40 left-1/4 w-40 h-40 rounded-full bg-aussie-gold opacity-60 animate-float" style="animation-delay: 1s;"></div>
+<div class="absolute bottom-20 right-1/3 w-28 h-28 rounded-full bg-aussie-purple opacity-60 animate-float" style="animation-delay: 1.5s;"></div>
+<div class="absolute top-1/3 right-1/4 w-36 h-36 rounded-full bg-aussie-green opacity-60 animate-float" style="animation-delay: 2s;"></div>
+
+<!-- Paint brushes -->
+<div class="absolute bottom-1/4 left-10 w-16 h-64 rotate-45 bg-aussie-pink rounded-t-full shadow-lg animate-float" style="animation-delay: 2.5s;"></div>
+<div class="absolute top-1/3 right-10 w-12 h-48 -rotate-30 bg-aussie-teal rounded-t-full shadow-lg animate-float" style="animation-delay: 3s;"></div>
+
+<!-- Paint splatters -->
+<svg class="absolute top-1/3 left-1/3 w-40 h-40 text-aussie-orange opacity-60 animate-float" style="animation-delay: 1.8s;" viewBox="0 0 100 100">
+<path fill="currentColor" d="M81.4,46c-0.6-2.9-3.8-7.3-7.7-10.5C65.3,29.5,56,34.5,52.8,36c-2.9-8.2-9.3-12.5-22.1-12c-5,0.2-9.2,4.5-9.5,9.4 c-0.3,4.5,1.8,8.1,6.4,9.6c2.8,0.9,5.5,0.7,5.5,0.7c0.9,4.1,4.2,5.3,7.7,5.4c4.8,0.1,7.4-0.1,11.9-1.2c0,0,2.7,2.1,6.4,2.6 c7.8,1.1,14-1.8,16.5-7.1C78.5,53.8,82.3,50.2,81.4,46z"></path>
+</svg>
+<svg class="absolute bottom-1/4 right-1/4 w-32 h-32 text-aussie-pink opacity-60 animate-float" style="animation-delay: 3.2s;" viewBox="0 0 100 100">
+<path fill="currentColor" d="M79.1,34.3c-3.2-5.9-7.3-7.4-12.5-5.3c-2.9,1.2-4.1,3.8-4.9,6c-4.6-2.4-9.6,0.1-20.6,8.5 c-5.2,4-6.6,14.6-3.5,19.5c0,0,1.2,1.7,5.6,1.7c2.9,0,4.7-1.4,4.7-1.4c3.3,1.9,6.4,0.9,9.3-1.8c0,0,2-1.8,3.2-3.6 c4.3,2.9,8.3,2.6,11.9-1.1C77.2,51.7,83.2,41.8,79.1,34.3z"></path>
+</svg>
+
+<!-- Pattern elements -->
+<div class="absolute top-10 left-1/2 w-16 h-16 bg-aussie-gold rounded-full opacity-40 animate-pulse-scale"></div>
+<div class="absolute bottom-20 left-20 w-24 h-24 bg-aussie-green rounded-full opacity-40 animate-pulse-scale" style="animation-delay: 1s;"></div>
+<div class="absolute top-1/4 right-10 w-20 h-20 bg-aussie-red rounded-full opacity-40 animate-pulse-scale" style="animation-delay: 2s;"></div>
+</div>
+
+<div class="text-center text-white px-4 z-10 animate-fadeIn">
+<h1 class="text-7xl md:text-8xl font-bold mb-6 neon-text">Bring <span class="rainbow-text">Color</span> to Life!</h1>
+<p class="text-2xl md:text-3xl mb-10 max-w-3xl mx-auto font-semibold">Australia's most vibrant face painting service for parties, festivals, and events!</p>
+<div class="flex flex-col md:flex-row justify-center gap-6">
+<a href="#contact" class="btn-aussie transform hover:scale-105 text-xl uppercase tracking-wider">Book Your Event</a>
+<a href="#gallery" class="btn-outline transform hover:scale-105 text-xl uppercase tracking-wider">See Our Magic</a>
+</div>
+</div>
+
+<!-- Diagonal rainbow divider at the bottom -->
+<div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-r from-aussie-purple via-aussie-blue via-aussie-green via-aussie-gold via-aussie-orange to-aussie-red" style="clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);"></div>
+</header>
+
+<!-- Services Section -->
+<section id="services" class="py-20 bg-white paint-splatter">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-6xl font-bold rainbow-text mb-4">Our Magical Services</h2>
+<p class="text-2xl text-gray-600 max-w-3xl mx-auto">Transforming faces into dazzling works of art for every occasion!</p>
+<!-- Decorative element -->
+<div class="w-40 h-2 bg-aussie-gradient mx-auto mt-6 rounded-full"></div>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+<div class="rounded-3xl p-8 bg-white shadow-2xl transition transform hover:-translate-y-6 card-3d-effect overflow-hidden border-t-8 border-aussie-gold group">
+<div class="bg-aussie-gold text-white rounded-full w-24 h-24 flex items-center justify-center mb-8 mx-auto shadow-lg group-hover:scale-110 transition-transform duration-500">
+    <i class="fas fa-birthday-cake text-4xl"></i>
+</div>
+<h3 class="text-3xl font-bold text-center mb-6 text-aussie-gold group-hover:text-aussie-orange transition-colors duration-300">Birthday Parties</h3>
+<p class="text-gray-600 text-center text-lg mb-8">Make your child's special day a magical adventure with our dazzling face painting designs that will delight guests of all ages!</p>
+<div class="flex justify-center">
+    <a href="#contact" class="inline-block bg-aussie-gold hover:bg-aussie-orange text-white font-bold py-3 px-8 rounded-full transition transform hover:scale-110 shadow-lg hover:shadow-xl">Let's Party!</a>
+</div>
+
+<!-- Decorative corner elements -->
+<div class="absolute top-0 right-0 w-20 h-20 bg-aussie-gold opacity-10 rounded-bl-full"></div>
+<div class="absolute bottom-0 left-0 w-16 h-16 bg-aussie-gold opacity-10 rounded-tr-full"></div>
+</div>
+
+<div class="rounded-3xl p-8 bg-white shadow-2xl transition transform hover:-translate-y-6 card-3d-effect overflow-hidden border-t-8 border-aussie-blue group mt-10 md:mt-0">
+<div class="bg-aussie-blue text-white rounded-full w-24 h-24 flex items-center justify-center mb-8 mx-auto shadow-lg group-hover:scale-110 transition-transform duration-500">
+    <i class="fas fa-building text-4xl"></i>
+</div>
+<h3 class="text-3xl font-bold text-center mb-6 text-aussie-blue group-hover:text-aussie-teal transition-colors duration-300">Corporate Events</h3>
+<p class="text-gray-600 text-center text-lg mb-8">Elevate your company functions with our professional face painting that creates memorable and engaging experiences for all attendees!</p>
+<div class="flex justify-center">
+    <a href="#contact" class="inline-block bg-aussie-blue hover:bg-aussie-teal text-white font-bold py-3 px-8 rounded-full transition transform hover:scale-110 shadow-lg hover:shadow-xl">Elevate Events</a>
+</div>
+
+<!-- Decorative corner elements -->
+<div class="absolute top-0 right-0 w-20 h-20 bg-aussie-blue opacity-10 rounded-bl-full"></div>
+<div class="absolute bottom-0 left-0 w-16 h-16 bg-aussie-blue opacity-10 rounded-tr-full"></div>
+</div>
+
+<div class="rounded-3xl p-8 bg-white shadow-2xl transition transform hover:-translate-y-6 card-3d-effect overflow-hidden border-t-8 border-aussie-purple group mt-10 md:mt-16">
+<div class="bg-aussie-purple text-white rounded-full w-24 h-24 flex items-center justify-center mb-8 mx-auto shadow-lg group-hover:scale-110 transition-transform duration-500">
+    <i class="fas fa-music text-4xl"></i>
+</div>
+<h3 class="text-3xl font-bold text-center mb-6 text-aussie-purple group-hover:text-aussie-pink transition-colors duration-300">Festivals & Events</h3>
+<p class="text-gray-600 text-center text-lg mb-8">Stand out in the crowd with our festival-ready designs, from subtle accents to full-face artistic masterpieces that wow everyone!</p>
+<div class="flex justify-center">
+    <a href="#contact" class="inline-block bg-aussie-purple hover:bg-aussie-pink text-white font-bold py-3 px-8 rounded-full transition transform hover:scale-110 shadow-lg hover:shadow-xl">Festival Fun</a>
+</div>
+
+<!-- Decorative corner elements -->
+<div class="absolute top-0 right-0 w-20 h-20 bg-aussie-purple opacity-10 rounded-bl-full"></div>
+<div class="absolute bottom-0 left-0 w-16 h-16 bg-aussie-purple opacity-10 rounded-tr-full"></div>
+</div>
+</div>
+
+<!-- Extra service offerings -->
+<div class="mt-20 grid grid-cols-1 md:grid-cols-4 gap-6">
+<div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition flex flex-col items-center text-center group hover:bg-aussie-red hover:bg-opacity-5">
+<div class="text-aussie-red text-4xl mb-4 group-hover:scale-125 transition-transform">
+    <i class="fas fa-palette"></i>
+</div>
+<h4 class="text-xl font-bold mb-2 text-aussie-red">Custom Designs</h4>
+<p class="text-gray-600">Unique creations tailored just for you!</p>
+</div>
+
+<div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition flex flex-col items-center text-center group hover:bg-aussie-green hover:bg-opacity-5">
+<div class="text-aussie-green text-4xl mb-4 group-hover:scale-125 transition-transform">
+    <i class="fas fa-magic"></i>
+</div>
+<h4 class="text-xl font-bold mb-2 text-aussie-green">Glitter Accents</h4>
+<p class="text-gray-600">Add extra sparkle to any design!</p>
+</div>
+
+<div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition flex flex-col items-center text-center group hover:bg-aussie-blue hover:bg-opacity-5">
+<div class="text-aussie-blue text-4xl mb-4 group-hover:scale-125 transition-transform">
+    <i class="fas fa-gem"></i>
+</div>
+<h4 class="text-xl font-bold mb-2 text-aussie-blue">Gem Embellishments</h4>
+<p class="text-gray-600">Fancy jewels for extra glamour!</p>
+</div>
+
+<div class="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition flex flex-col items-center text-center group hover:bg-aussie-orange hover:bg-opacity-5">
+<div class="text-aussie-orange text-4xl mb-4 group-hover:scale-125 transition-transform">
+    <i class="fas fa-hat-wizard"></i>
+</div>
+<h4 class="text-xl font-bold mb-2 text-aussie-orange">Themed Designs</h4>
+<p class="text-gray-600">Match your event's special theme!</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Gallery Section -->
+<section id="gallery" class="py-20 bg-festival-gradient relative overflow-hidden">
+<!-- Floating paint elements -->
+<div class="absolute inset-0 pointer-events-none">
+<div class="absolute top-10 right-10 w-40 h-40 bg-white opacity-10 rounded-full"></div>
+<div class="absolute bottom-20 left-10 w-64 h-64 bg-white opacity-10 rounded-full"></div>
+</div>
+
+<div class="container mx-auto px-4 relative z-10">
+<div class="text-center mb-16">
+<h2 class="text-6xl font-bold text-white neon-text mb-4">Our Magical Gallery</h2>
+<p class="text-2xl text-white max-w-3xl mx-auto">Every face tells a story. Here are some of our favorite masterpieces!</p>
+<!-- Decorative element -->
+<div class="w-40 h-2 bg-white mx-auto mt-6 rounded-full opacity-50"></div>
+</div>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+<div class="group hover-zoom overflow-hidden rounded-2xl shadow-2xl glow-on-hover transform transition duration-500 hover:scale-105 hover:rotate-2">
+<div class="relative">
+    <img src="/api/placeholder/400/400" alt="Butterfly Fantasy face painting design" class="w-full h-64 object-cover">
+    <div class="absolute inset-0 bg-gradient-to-t from-aussie-purple to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end">
+        <div class="p-6">
+            <h3 class="font-bold text-white text-xl">Butterfly Fantasy</h3>
+            <p class="text-white text-sm">Perfect for birthdays</p>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="group hover-zoom overflow-hidden rounded-2xl shadow-2xl glow-on-hover transform transition duration-500 hover:scale-105 hover:rotate-2">
+<div class="relative">
+    <img src="/api/placeholder/400/400" alt="Superhero Mask face painting design" class="w-full h-64 object-cover">
+    <div class="absolute inset-0 bg-gradient-to-t from-aussie-blue to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end">
+        <div class="p-6">
+            <h3 class="font-bold text-white text-xl">Superhero Mask</h3>
+            <p class="text-white text-sm">Kids' favorite</p>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="group hover-zoom overflow-hidden rounded-2xl shadow-2xl glow-on-hover transform transition duration-500 hover:scale-105 hover:rotate-2">
+<div class="relative">
+    <img src="/api/placeholder/400/400" alt="Festival Glitter face painting design" class="w-full h-64 object-cover">
+    <div class="absolute inset-0 bg-gradient-to-t from-aussie-pink to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end">
+        <div class="p-6">
+            <h3 class="font-bold text-white text-xl">Festival Glitter</h3>
+            <p class="text-white text-sm">Perfect for events</p>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="group hover-zoom overflow-hidden rounded-2xl shadow-2xl glow-on-hover transform transition duration-500 hover:scale-105 hover:rotate-2">
+<div class="relative">
+    <img src="/api/placeholder/400/400" alt="Aussie Wildlife face painting design" class="w-full h-64 object-cover">
+    <div class="absolute inset-0 bg-gradient-to-t from-aussie-green to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end">
+        <div class="p-6">
+            <h3 class="font-bold text-white text-xl">Aussie Wildlife</h3>
+            <p class="text-white text-sm">Iconic designs</p>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="group hover-zoom overflow-hidden rounded-2xl shadow-2xl glow-on-hover transform transition duration-500 hover:scale-105 hover:rotate-2">
+<div class="relative">
+    <img src="/api/placeholder/400/400" alt="Mermaid Magic face painting design" class="w-full h-64 object-cover">
+    <div class="absolute inset-0 bg-gradient-to-t from-aussie-teal to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end">
+        <div class="p-6">
+            <h3 class="font-bold text-white text-xl">Mermaid Magic</h3>
+            <p class="text-white text-sm">Stunning details</p>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="group hover-zoom overflow-hidden rounded-2xl shadow-2xl glow-on-hover transform transition duration-500 hover:scale-105 hover:rotate-2">
+<div class="relative">
+    <img src="/api/placeholder/400/400" alt="Corporate Branding face painting design" class="w-full h-64 object-cover">
+    <div class="absolute inset-0 bg-gradient-to-t from-aussie-blue to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end">
+        <div class="p-6">
+            <h3 class="font-bold text-white text-xl">Corporate Branding</h3>
+            <p class="text-white text-sm">For business events</p>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="group hover-zoom overflow-hidden rounded-2xl shadow-2xl glow-on-hover transform transition duration-500 hover:scale-105 hover:rotate-2">
+<div class="relative">
+    <img src="/api/placeholder/400/400" alt="Golden Crown face painting design" class="w-full h-64 object-cover">
+    <div class="absolute inset-0 bg-gradient-to-t from-aussie-gold to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end">
+        <div class="p-6">
+            <h3 class="font-bold text-white text-xl">Golden Crown</h3>
+            <p class="text-white text-sm">Royal treatment</p>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="group hover-zoom overflow-hidden rounded-2xl shadow-2xl glow-on-hover transform transition duration-500 hover:scale-105 hover:rotate-2">
+<div class="relative">
+    <img src="/api/placeholder/400/400" alt="Floral Dreams face painting design" class="w-full h-64 object-cover">
+    <div class="absolute inset-0 bg-gradient-to-t from-aussie-red to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300 flex items-end">
+        <div class="p-6">
+            <h3 class="font-bold text-white text-xl">Floral Dreams</h3>
+            <p class="text-white text-sm">Elegant and beautiful</p>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="text-center mt-16">
+<a href="#contact" class="inline-block bg-white text-aussie-purple font-bold py-4 px-10 rounded-full shadow-lg transition transform hover:scale-110 hover:shadow-xl text-xl">See More Designs</a>
+</div>
+</div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="py-20 bg-white animated-bg relative overflow-hidden">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-6xl font-bold rainbow-text mb-4">About AussieFaces</h2>
+<p class="text-2xl text-gray-600 max-w-3xl mx-auto">Bringing color and joy to events across Australia!</p>
+<!-- Decorative element -->
+<div class="w-40 h-2 bg-aussie-gradient mx-auto mt-6 rounded-full"></div>
+</div>
+
+<div class="flex flex-col md:flex-row items-center gap-16">
+<div class="md:w-1/2 relative">
+<div class="absolute -top-6 -left-6 w-full h-full bg-aussie-pink rounded-2xl"></div>
+<div class="absolute -bottom-6 -right-6 w-full h-full bg-aussie-blue rounded-2xl"></div>
+<img src="/api/placeholder/600/600" alt="About AussieFaces" class="relative rounded-2xl shadow-2xl border-8 border-white transform rotate-3 z-10">
+
+<!-- Decorative elements -->
+<div class="absolute -top-10 -right-10 w-20 h-20 bg-aussie-gold opacity-70 rounded-full z-0 animate-pulse-scale"></div>
+<div class="absolute -bottom-16 -left-8 w-24 h-24 bg-aussie-green opacity-70 rounded-full z-0 animate-pulse-scale" style="animation-delay: 1s;"></div>
+</div>
+
+<div class="md:w-1/2">
+<h3 class="text-4xl font-bold mb-6 text-aussie-purple">Our Colorful Story</h3>
+<p class="text-gray-600 mb-6 text-lg leading-relaxed">
+    Founded in 2015 by a team of passionate artists, AussieFaces has grown to become Australia's premier face painting service, bringing joy and creativity to events across the country.
+</p>
+<p class="text-gray-600 mb-6 text-lg leading-relaxed">
+    Our team of professional artists uses only the highest-quality, skin-safe products to ensure beautiful results and happy customers of all ages.
+</p>
+<p class="text-gray-600 mb-10 text-lg leading-relaxed">
+    From Sydney to Perth, Brisbane to Melbourne, our talented artists have delighted thousands of clients at parties, corporate events, and festivals throughout Australia.
+</p>
+
+<div class="grid grid-cols-3 gap-6 mb-10">
+    <div class="text-center p-6 rounded-2xl bg-gradient-to-br from-aussie-green to-aussie-blue shadow-lg transform transition hover:scale-105">
+        <div class="text-5xl font-bold text-white mb-2">500+</div>
+        <div class="text-white font-semibold">Events</div>
+    </div>
+    <div class="text-center p-6 rounded-2xl bg-gradient-to-br from-aussie-blue to-aussie-purple shadow-lg transform transition hover:scale-105">
+        <div class="text-5xl font-bold text-white mb-2">15k+</div>
+        <div class="text-white font-semibold">Happy Faces</div>
+    </div>
+    <div class="text-center p-6 rounded-2xl bg-gradient-to-br from-aussie-purple to-aussie-pink shadow-lg transform transition hover:scale-105">
+        <div class="text-5xl font-bold text-white mb-2">7</div>
+        <div class="text-white font-semibold">Aus States</div>
+    </div>
+</div>
+
+<div class="flex flex-wrap gap-6 items-center">
+    <a href="#contact" class="inline-block bg-aussie-gradient text-white font-bold py-4 px-10 rounded-full shadow-lg transition transform hover:scale-105 hover:shadow-xl text-xl">Join Our Colorful Journey</a>
+    
+    <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-full bg-white border-4 border-aussie-pink shadow-lg flex items-center justify-center">
+            <i class="fas fa-award text-aussie-pink text-xl"></i>
+        </div>
+        <div>
+            <span class="block text-sm font-semibold text-gray-500">Awarded</span>
+            <span class="block font-bold text-aussie-pink">Best Vendor 2024</span>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+<!-- Team section -->
+<div class="mt-24">
+<div class="text-center mb-16">
+<h3 class="text-4xl font-bold rainbow-text mb-4">Meet Our Creative Team</h3>
+<p class="text-xl text-gray-600 max-w-3xl mx-auto">The talented artists who bring your face painting dreams to life!</p>
+</div>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+<div class="bg-white rounded-2xl shadow-xl overflow-hidden transform transition hover:scale-105 hover:shadow-2xl group">
+    <div class="relative overflow-hidden">
+        <img src="/api/placeholder/300/300" alt="Team member" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-aussie-purple to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
+    </div>
+    <div class="p-6">
+        <h4 class="text-xl font-bold mb-1 text-aussie-purple">Sarah Williams</h4>
+        <p class="text-gray-500 mb-4">Creative Director</p>
+        <p class="text-gray-600">10+ years of artistic experience with specialties in fantasy designs.</p>
+    </div>
+</div>
+
+<div class="bg-white rounded-2xl shadow-xl overflow-hidden transform transition hover:scale-105 hover:shadow-2xl group">
+    <div class="relative overflow-hidden">
+        <img src="/api/placeholder/300/300" alt="Team member" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-aussie-blue to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
+    </div>
+    <div class="p-6">
+        <h4 class="text-xl font-bold mb-1 text-aussie-blue">Michael Chen</h4>
+        <p class="text-gray-500 mb-4">Lead Artist</p>
+        <p class="text-gray-600">Award-winning face painter specializing in superhero designs.</p>
+    </div>
+</div>
+
+<div class="bg-white rounded-2xl shadow-xl overflow-hidden 
+<div class="bg-white rounded-2xl shadow-xl overflow-hidden transform transition hover:scale-105 hover:shadow-2xl group">
+    <div class="relative overflow-hidden">
+        <img src="/api/placeholder/300/300" alt="Team member" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-aussie-green to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
+    </div>
+    <div class="p-6">
+        <h4 class="text-xl font-bold mb-1 text-aussie-green">Emma Thompson</h4>
+        <p class="text-gray-500 mb-4">Senior Artist</p>
+        <p class="text-gray-600">Festival specialist with expertise in glitter and gem techniques.</p>
+    </div>
+</div>
+
+<div class="bg-white rounded-2xl shadow-xl overflow-hidden transform transition hover:scale-105 hover:shadow-2xl group">
+    <div class="relative overflow-hidden">
+        <img src="/api/placeholder/300/300" alt="Team member" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-aussie-red to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
+    </div>
+    <div class="p-6">
+        <h4 class="text-xl font-bold mb-1 text-aussie-red">Jason Cooper</h4>
+        <p class="text-gray-500 mb-4">Corporate Specialist</p>
+        <p class="text-gray-600">Expert in branded designs and professional event face painting.</p>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="py-20 bg-aussie-gradient relative overflow-hidden">
+<!-- Floating bubbles background -->
+<div class="absolute inset-0 pointer-events-none">
+<div class="absolute top-10 left-10 w-32 h-32 bg-white opacity-10 rounded-full"></div>
+<div class="absolute bottom-10 right-10 w-48 h-48 bg-white opacity-10 rounded-full"></div>
+<div class="absolute top-1/3 right-1/4 w-24 h-24 bg-white opacity-10 rounded-full"></div>
+<div class="absolute bottom-1/4 left-1/3 w-16 h-16 bg-white opacity-10 rounded-full"></div>
+</div>
+
+<div class="container mx-auto px-4 relative z-10">
+<div class="text-center mb-16">
+<h2 class="text-6xl font-bold text-white neon-text mb-4">Happy Customers</h2>
+<p class="text-2xl text-white max-w-3xl mx-auto">See what our clients have to say about our colorful creations!</p>
+<!-- Decorative element -->
+<div class="w-40 h-2 bg-white mx-auto mt-6 rounded-full opacity-50"></div>
+</div>
+
+<div id="testimonial-slider" class="relative max-w-5xl mx-auto">
+<div class="testimonial-container overflow-hidden rounded-3xl">
+<div id="testimonials" class="flex transition-transform duration-500 ease-in-out">
+    <div class="testimonial-slide min-w-full p-6">
+        <div class="bg-white p-10 rounded-3xl shadow-2xl transform rotate-1 relative overflow-hidden">
+            <!-- Decorative corner splatter -->
+            <div class="absolute top-0 right-0 w-32 h-32 bg-aussie-gold opacity-10 rounded-bl-full"></div>
+            
+            <div class="flex items-center mb-6">
+                <div class="flex text-aussie-gold text-2xl">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+            </div>
+            <p class="text-gray-600 mb-8 text-xl italic leading-relaxed">"AussieFaces transformed our company family day into an unforgettable experience. The designs were spectacular and the artists were professional and friendly. Would definitely book again!"</p>
+            <div class="flex items-center">
+                <div class="w-16 h-16 bg-aussie-blue rounded-full flex items-center justify-center text-white font-bold text-2xl shadow-lg">SJ</div>
+                <div class="ml-6">
+                    <p class="font-bold text-xl text-aussie-blue">Sarah Johnson</p>
+                    <p class="text-gray-500">Event Manager, Brisbane</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="testimonial-slide min-w-full p-6">
+        <div class="bg-white p-10 rounded-3xl shadow-2xl transform -rotate-1 relative overflow-hidden">
+            <!-- Decorative corner splatter -->
+            <div class="absolute bottom-0 left-0 w-32 h-32 bg-aussie-red opacity-10 rounded-tr-full"></div>
+            
+            <div class="flex items-center mb-6">
+                <div class="flex text-aussie-gold text-2xl">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+            </div>
+            <p class="text-gray-600 mb-8 text-xl italic leading-relaxed">"The highlight of my daughter's birthday party was definitely the face painting. The artist was amazing with the kids, and everyone loved their designs. Thank you AussieFaces!"</p>
+            <div class="flex items-center">
+                <div class="w-16 h-16 bg-aussie-red rounded-full flex items-center justify-center text-white font-bold text-2xl shadow-lg">MT</div>
+                <div class="ml-6">
+                    <p class="font-bold text-xl text-aussie-red">Michael Taylor</p>
+                    <p class="text-gray-500">Parent, Sydney</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="testimonial-slide min-w-full p-6">
+        <div class="bg-white p-10 rounded-3xl shadow-2xl transform rotate-1 relative overflow-hidden">
+            <!-- Decorative corner splatter -->
+            <div class="absolute top-0 left-0 w-32 h-32 bg-aussie-purple opacity-10 rounded-br-full"></div>
+            
+            <div class="flex items-center mb-6">
+                <div class="flex text-aussie-gold text-2xl">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+            </div>
+            <p class="text-gray-600 mb-8 text-xl italic leading-relaxed">"We hired AussieFaces for our festival and they were a massive hit! The queue never stopped all day and the artwork was absolutely stunning. Very professional service from start to finish."</p>
+            <div class="flex items-center">
+                <div class="w-16 h-16 bg-aussie-purple rounded-full flex items-center justify-center text-white font-bold text-2xl shadow-lg">JW</div>
+                <div class="ml-6">
+                    <p class="font-bold text-xl text-aussie-purple">Jessica Wong</p>
+                    <p class="text-gray-500">Festival Organizer, Melbourne</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<button id="prev-btn" class="absolute top-1/2 -left-4 transform -translate-y-1/2 bg-white p-5 rounded-full shadow-lg hover:bg-gray-100 text-aussie-purple transition hover:scale-110 z-20">
+<i class="fas fa-chevron-left text-2xl"></i>
+</button>
+<button id="next-btn" class="absolute top-1/2 -right-4 transform -translate-y-1/2 bg-white p-5 rounded-full shadow-lg hover:bg-gray-100 text-aussie-purple transition hover:scale-110 z-20">
+<i class="fas fa-chevron-right text-2xl"></i>
+</button>
+</div>
+
+<!-- Testimonial indicators -->
+<div class="flex justify-center mt-8 space-x-3">
+<button class="w-4 h-4 rounded-full bg-white opacity-50 hover:opacity-100 transition" data-slide="0"></button>
+<button class="w-4 h-4 rounded-full bg-white opacity-50 hover:opacity-100 transition" data-slide="1"></button>
+<button class="w-4 h-4 rounded-full bg-white opacity-50 hover:opacity-100 transition" data-slide="2"></button>
+</div>
+</div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-20 bg-white paint-splatter">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-6xl font-bold rainbow-text mb-4">Book Your Event</h2>
+<p class="text-2xl text-gray-600 max-w-3xl mx-auto">Ready to add some color to your next celebration? Let's make it unforgettable!</p>
+<!-- Decorative element -->
+<div class="w-40 h-2 bg-aussie-gradient mx-auto mt-6 rounded-full"></div>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+<div class="bg-white p-10 rounded-3xl shadow-2xl border-rainbow">
+<h3 class="text-4xl font-bold mb-8 text-aussie-purple">Get in Touch</h3>
+<p class="mb-10 text-gray-600 text-lg">Ready to add some color to your next event? Fill out the form or contact us directly using the information below:</p>
+
+<div class="flex items-center mb-8 group">
+    <div class="w-16 h-16 rounded-full bg-aussie-green flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
+        <i class="fas fa-map-marker-alt text-2xl"></i>
+    </div>
+    <p class="ml-6 text-gray-600 text-lg">123 Creative Street, Sydney, NSW 2000</p>
+</div>
+
+<div class="flex items-center mb-8 group">
+    <div class="w-16 h-16 rounded-full bg-aussie-blue flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
+        <i class="fas fa-phone text-2xl"></i>
+    </div>
+    <p class="ml-6 text-gray-600 text-lg">+61 2 1234 5678</p>
+</div>
+
+<div class="flex items-center mb-12 group">
+    <div class="w-16 h-16 rounded-full bg-aussie-purple flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
+        <i class="fas fa-envelope text-2xl"></i>
+    </div>
+    <p class="ml-6 text-gray-600 text-lg">info@aussiefaces.com.au</p>
+</div>
+
+<div class="flex space-x-6">
+    <a href="#" class="w-14 h-14 rounded-full bg-aussie-red flex items-center justify-center text-white shadow-md hover:bg-red-600 transition transform hover:scale-110 hover:shadow-lg">
+        <i class="fab fa-facebook-f text-xl"></i>
+    </a>
+    <a href="#" class="w-14 h-14 rounded-full bg-gradient-to-br from-aussie-purple to-aussie-red flex items-center justify-center text-white shadow-md transition transform hover:scale-110 hover:shadow-lg">
+        <i class="fab fa-instagram text-xl"></i>
+    </a>
+    <a href="#" class="w-14 h-14 rounded-full bg-aussie-blue flex items-center justify-center text-white shadow-md hover:bg-blue-600 transition transform hover:scale-110 hover:shadow-lg">
+        <i class="fab fa-twitter text-xl"></i>
+    </a>
+    <a href="#" class="w-14 h-14 rounded-full bg-aussie-green flex items-center justify-center text-white shadow-md hover:bg-green-600 transition transform hover:scale-110 hover:shadow-lg">
+        <i class="fab fa-tiktok text-xl"></i>
+    </a>
+</div>
+</div>
+
+<div>
+<form id="contact-form" class="bg-white p-10 rounded-3xl shadow-2xl relative">
+    <!-- Decorative corner elements -->
+    <div class="absolute top-0 right-0 w-32 h-32 bg-aussie-pink opacity-5 rounded-bl-full"></div>
+    <div class="absolute bottom-0 left-0 w-32 h-32 bg-aussie-blue opacity-5 rounded-tr-full"></div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        <div>
+            <label for="name" class="block mb-3 font-bold text-gray-700 text-lg">Your Name</label>
+            <input type="text" id="name" class="w-full px-6 py-4 rounded-xl bg-gray-50 border-2 border-gray-200 focus:border-aussie-purple focus:outline-none focus:ring-2 focus:ring-aussie-purple focus:ring-opacity-30 text-lg transition" placeholder="John Smith">
+        </div>
+        <div>
+            <label for="email" class="block mb-3 font-bold text-gray-700 text-lg">Your Email</label>
+            <input type="email" id="email" class="w-full px-6 py-4 rounded-xl bg-gray-50 border-2 border-gray-200 focus:border-aussie-purple focus:outline-none focus:ring-2 focus:ring-aussie-purple focus:ring-opacity-30 text-lg transition" placeholder="john@example.com">
+        </div>
+    </div>
+    
+    <div class="mb-8">
+        <label for="phone" class="block mb-3 font-bold text-gray-700 text-lg">Phone Number</label>
+        <input type="tel" id="phone" class="w-full px-6 py-4 rounded-xl bg-gray-50 border-2 border-gray-200 focus:border-aussie-purple focus:outline-none focus:ring-2 focus:ring-aussie-purple focus:ring-opacity-30 text-lg transition" placeholder="+61 4XX XXX XXX">
+    </div>
+    
+    <div class="mb-8">
+        <label for="event-type" class="block mb-3 font-bold text-gray-700 text-lg">Event Type</label>
+        <select id="event-type" class="w-full px-6 py-4 rounded-xl bg-gray-50 border-2 border-gray-200 focus:border-aussie-purple focus:outline-none focus:ring-2 focus:ring-aussie-purple focus:ring-opacity-30 text-lg transition">
+            <option value="" selected disabled>Select Event Type</option>
+            <option value="birthday">Birthday Party</option>
+            <option value="corporate">Corporate Event</option>
+            <option value="festival">Festival</option>
+            <option value="school">School Event</option>
+            <option value="other">Other</option>
+        </select>
+    </div>
+    
+    <div class="mb-10">
+        <label for="message" class="block mb-3 font-bold text-gray-700 text-lg">Your Message</label>
+        <textarea id="message" rows="5" class="w-full px-6 py-4 rounded-xl bg-gray-50 border-2 border-gray-200 focus:border-aussie-purple focus:outline-none focus:ring-2 focus:ring-aussie-purple focus:ring-opacity-30 text-lg transition" placeholder="Tell us about your event..."></textarea>
+    </div>
+    
+    <button type="submit" class="w-full py-5 px-8 bg-aussie-gradient text-white font-bold text-xl rounded-xl shadow-xl hover:shadow-2xl transition transform hover:scale-105 relative overflow-hidden">
+        <span class="relative z-10">Send Your Message</span>
+    </button>
+</form>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-20 bg-gradient-to-br from-aussie-blue/10 to-aussie-purple/10 relative overflow-hidden">
+<!-- Decorative elements -->
+<div class="absolute inset-0 pointer-events-none">
+<div class="absolute top-10 left-10 w-40 h-40 bg-aussie-blue opacity-5 rounded-full"></div>
+<div class="absolute bottom-20 right-20 w-56 h-56 bg-aussie-purple opacity-5 rounded-full"></div>
+</div>
+
+<div class="container mx-auto px-4 relative z-10">
+<div class="text-center mb-16">
+<h2 class="text-5xl font-bold rainbow-text mb-4">Frequently Asked Questions</h2>
+<p class="text-xl text-gray-600 max-w-3xl mx-auto">Everything you need to know about our face painting services</p>
+<!-- Decorative element -->
+<div class="w-40 h-2 bg-aussie-gradient mx-auto mt-6 rounded-full"></div>
+</div>
+
+<div class="max-w-4xl mx-auto grid gap-8">
+<div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:scale-105 hover:-rotate-1 border-l-4 border-aussie-purple">
+<h3 class="text-2xl font-bold text-aussie-purple mb-4">Is the face paint safe for sensitive skin?</h3>
+<p class="text-gray-600 text-lg">Absolutely! We use only professional, water-based face paints that are FDA-approved, hypoallergenic, and designed specifically for use on skin. They're easily removed with soap and water.</p>
+</div>
+
+<div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:scale-105 hover:rotate-1 border-l-4 border-aussie-blue">
+<h3 class="text-2xl font-bold text-aussie-blue mb-4">How many faces can you paint per hour?</h3>
+<p class="text-gray-600 text-lg">Each artist can paint approximately 10-15 faces per hour, depending on the complexity of the designs. For larger events, we recommend booking multiple artists.</p>
+</div>
+
+<div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:scale-105 hover:-rotate-1 border-l-4 border-aussie-green">
+<h3 class="text-2xl font-bold text-aussie-green mb-4">How far in advance should we book?</h3>
+<p class="text-gray-600 text-lg">We recommend booking at least 4-6 weeks in advance, especially for weekend events during peak season (October-December). For large corporate events, 2-3 months notice is preferred.</p>
+</div>
+
+<div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:scale-105 hover:rotate-1 border-l-4 border-aussie-red">
+<h3 class="text-2xl font-bold text-aussie-red mb-4">What areas of Australia do you service?</h3>
+<p class="text-gray-600 text-lg">We have artists based in all major cities including Sydney, Melbourne, Brisbane, Perth, Adelaide, Canberra, and Hobart. We can also travel to regional areas for an additional travel fee.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-aussie-purple bg-gradient-to-br from-aussie-purple to-aussie-blue text-white py-20 relative overflow-hidden">
+<!-- Decorative top border -->
+<div class="absolute top-0 left-0 right-0 h-4 bg-gradient-to-r from-aussie-red via-aussie-orange via-aussie-gold via-aussie-green via-aussie-blue to-aussie-purple"></div>
+
+<!-- Background elements -->
+<div class="absolute inset-0 pointer-events-none">
+<div class="absolute top-10 right-10 w-64 h-64 bg-white opacity-5 rounded-full"></div>
+<div class="absolute bottom-20 left-10 w-48 h-48 bg-white opacity-5 rounded-full"></div>
+</div>
+
+<div class="container mx-auto px-4 relative z-10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+<div>
+<h3 class="text-3xl font-bold rainbow-text mb-6">AussieFaces</h3>
+<p class="text-gray-300 mb-8">Australia's premier face painting service bringing color and joy to events nationwide since 2015.</p>
+<div class="flex space-x-4">
+    <a href="#" class="text-gray-300 hover:text-white transition transform hover:scale-125">
+        <i class="fab fa-facebook-f text-2xl"></i>
+    </a>
+    <a href="#" class="text-gray-300 hover:text-white transition transform hover:scale-125">
+        <i class="fab fa-instagram text-2xl"></i>
+    </a>
+    <a href="#" class="text-gray-300 hover:text-white transition transform hover:scale-125">
+        <i class="fab fa-twitter text-2xl"></i>
+    </a>
+    <a href="#" class="text-gray-300 hover:text-white transition transform hover:scale-125">
+        <i class="fab fa-tiktok text-2xl"></i>
+    </a>
+</div>
+</div>
+
+<div>
+<h4 class="text-xl font-bold mb-6 text-aussie-gold">Quick Links</h4>
+<ul class="space-y-4">
+    <li><a href="#services" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right mr-2 text-aussie-gold"></i> Services</a></li>
+    <li><a href="#gallery" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right mr-2 text-aussie-gold"></i> Gallery</a></li>
+    <li><a href="#about" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right mr-2 text-aussie-gold"></i> About Us</a></li>
+    <li><a href="#contact" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right mr-2 text-aussie-gold"></i> Contact</a></li>
+</ul>
+</div>
+
+<div>
+<h4 class="text-xl font-bold mb-6 text-aussie-gold">Services</h4>
+<ul class="space-y-4">
+    <li><a href="#" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right mr-2 text-aussie-gold"></i> Birthday Parties</a></li>
+    <li><a href="#" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right mr-2 text-aussie-gold"></i> Corporate Events</a></li>
+    <li><a href="#" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right mr-2 text-aussie-gold"></i> Festivals</a></li>
+    <li><a href="#" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right mr-2 text-aussie-gold"></i> School Events</a></li>
+</ul>
+</div>
+
+<div>
+<h4 class="text-xl font-bold mb-6 text-aussie-gold">Service Areas</h4>
+<ul class="space-y-4">
+    <li><a href="#" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right mr-2 text-aussie-gold"></i> Sydney</a></li>
+    <li><a href="#" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right mr-2 text-aussie-gold"></i> Melbourne</a></li>
+    <li><a href="#" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right mr-2 text-aussie-gold"></i> Brisbane</a></li>
+    <li><a href="#" class="text-gray-300 hover:text-white transition flex items-center"><i class="fas fa-chevron-right mr-2 text-aussie-gold"></i> Perth</a></li>
+</ul>
+</div>
+</div>
+
+<hr class="border-gray-700 mb-8">
+
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 mb-4 md:mb-0">© 2025 AussieFaces. All rights reserved.</p>
+
+<div class="flex flex-wrap gap-6">
+<a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+<a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+<a href="#" class="text-gray-400 hover:text-white transition">Cookie Policy</a>
+</div>
+</div>
+</div>
+</footer>
+
+<script>
+// Mobile Menu Toggle
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const closeMenuButton = document.getElementById('close-menu');
+const mobileMenu = document.getElementById('mobile-menu');
+const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+mobileMenuButton.addEventListener('click', () => {
+mobileMenu.classList.remove('hidden');
+document.body.style.overflow = 'hidden';
+});
+
+closeMenuButton.addEventListener('click', () => {
+mobileMenu.classList.add('hidden');
+document.body.style.overflow = 'auto';
+});
+
+mobileMenuLinks.forEach(link => {
+link.addEventListener('click', () => {
+mobileMenu.classList.add('hidden');
+document.body.style.overflow = 'auto';
+});
+});
+
+// Testimonial Slider
+const testimonials = document.getElementById('testimonials');
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
+const indicators = document.querySelectorAll('[data-slide]');
+let currentSlide = 0;
+const slideCount = document.querySelectorAll('.testimonial-slide').length;
+
+function updateSliderPosition() {
+testimonials.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+// Update indicators
+indicators.forEach((indicator, index) => {
+if (index === currentSlide) {
+indicator.style.opacity = '1';
+indicator.style.width = '24px';
+} else {
+indicator.style.opacity = '0.5';
+indicator.style.width = '16px';
+}
+});
+}
+
+nextBtn.addEventListener('click', () => {
+currentSlide = (currentSlide + 1) % slideCount;
+updateSliderPosition();
+});
+
+prevBtn.addEventListener('click', () => {
+currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+updateSliderPosition();
+});
+
+// Indicator click handling
+indicators.forEach((indicator, index) => {
+indicator.addEventListener('click', () => {
+currentSlide = index;
+updateSliderPosition();
+});
+});
+
+// Auto-advance testimonials
+setInterval(() => {
+currentSlide = (currentSlide + 1) % slideCount;
+updateSliderPosition();
+}, 6000);
+
+// Initialize indicators
+updateSliderPosition();
+
+// Form Submission
+const contactForm = document.getElementById('contact-form');
+
+contactForm.addEventListener('submit', (e) => {
+e.preventDefault();
+
+// Get form values
+const name = document.getElementById('name').value;
+const email = document.getElementById('email').value;
+const phone = document.getElementById('phone').value;
+const eventType = document.getElementById('event-type').value;
+const message = document.getElementById('message').value;
+
+// Simple validation
+if (!name || !email || !phone || !eventType || !message) {
+alert('Please fill in all fields');
+return;
+}
+
+// In a real application, you would send this data to your server
+        alert('Thank you for your inquiry! We will get back to you shortly.');
+contactForm.reset();
+
+// Show a success message
+const formContainer = contactForm.parentNode;
+const successMessage = document.createElement('div');
+successMessage.className = 'bg-aussie-green bg-opacity-10 p-8 rounded-2xl my-4 text-center';
+successMessage.innerHTML = `
+<div class="w-20 h-20 mx-auto bg-aussie-green rounded-full flex items-center justify-center text-white text-3xl mb-4">
+    <i class="fas fa-check"></i>
+</div>
+<h3 class="text-aussie-green text-2xl font-bold mb-2">Message Sent Successfully!</h3>
+<p class="text-gray-600">We've received your inquiry and will be in touch within 24 hours.</p>
+`;
+formContainer.appendChild(successMessage);
+
+// Scroll to success message
+setTimeout(() => {
+successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}, 100);
+
+// Remove success message after 5 seconds
+setTimeout(() => {
+successMessage.classList.add('opacity-0', 'transition-opacity', 'duration-1000');
+setTimeout(() => {
+    successMessage.remove();
+}, 1000);
+}, 5000);
+}
+})
+
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+e.preventDefault();
+
+const targetId = this.getAttribute('href');
+const targetElement = document.querySelector(targetId);
+
+if (targetElement) {
+window.scrollTo({
+    top: targetElement.offsetTop - 80,
+    behavior: 'smooth'
+});
+}
+});
+});
+
+// Add confetti effect on page load and button hover
+function createConfetti(container, count = 100, duration = 3000) {
+const colors = ['#00D16E', '#FFD700', '#00A8FF', '#FF4D6D', '#B347EA', '#FF8A00'];
+const confettiCount = count;
+
+if (typeof container === 'string') {
+container = document.querySelector(container);
+}
+
+for (let i = 0; i < confettiCount; i++) {
+const confetti = document.createElement('div');
+
+confetti.style.position = 'absolute';
+confetti.style.width = Math.random() * 10 + 5 + 'px';
+confetti.style.height = Math.random() * 10 + 5 + 'px';
+confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+confetti.style.opacity = Math.random() * 0.7 + 0.3;
+confetti.style.top = '0';
+confetti.style.left = Math.random() * 100 + '%';
+confetti.style.transform = 'rotate(' + Math.random() * 360 + 'deg)';
+confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+confetti.style.zIndex = '1';
+
+container.appendChild(confetti);
+
+const maxDistance = container.offsetHeight;
+const distance = Math.random() * maxDistance;
+const animDuration = Math.random() * (duration / 1000) + (duration / 2000);
+
+confetti.animate([
+{ transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+{ transform: 'translateY(' + distance + 'px) rotate(' + Math.random() * 360 + 'deg)', opacity: 0 }
+], {
+duration: animDuration * 1000,
+easing: 'cubic-bezier(0.25, 1, 0.5, 1)'
+});
+
+setTimeout(() => {
+confetti.remove();
+}, animDuration * 1000);
+}
+}
+
+// Create fixed position container for page-load confetti
+const confettiContainer = document.createElement('div');
+confettiContainer.style.position = 'fixed';
+confettiContainer.style.top = '0';
+confettiContainer.style.left = '0';
+confettiContainer.style.width = '100%';
+confettiContainer.style.height = '100vh';
+confettiContainer.style.pointerEvents = 'none';
+confettiContainer.style.zIndex = '9999';
+document.body.appendChild(confettiContainer);
+
+// Call confetti effect when page loads
+window.addEventListener('load', () => {
+createConfetti(confettiContainer, 150, 5000);
+
+// Remove container after confetti is done
+setTimeout(() => {
+confettiContainer.remove();
+}, 6000);
+});
+
+// Add confetti effect to all CTA buttons
+const ctaButtons = document.querySelectorAll('.btn-aussie, [href="#contact"]');
+ctaButtons.forEach(button => {
+button.addEventListener('mouseover', function() {
+// Create a container relative to the button
+const buttonRect = this.getBoundingClientRect();
+const buttonConfetti = document.createElement('div');
+buttonConfetti.style.position = 'absolute';
+buttonConfetti.style.top = '-20px';
+buttonConfetti.style.left = '0';
+buttonConfetti.style.width = '100%';
+buttonConfetti.style.height = '100px';
+buttonConfetti.style.pointerEvents = 'none';
+buttonConfetti.style.zIndex = '1';
+buttonConfetti.style.overflow = 'hidden';
+this.style.position = 'relative';
+this.appendChild(buttonConfetti);
+
+createConfetti(buttonConfetti, 30, 1000);
+
+// Remove container after animation
+setTimeout(() => {
+buttonConfetti.remove();
+}, 1500);
+});
+});
+
+// Animate elements on scroll
+function isInViewport(element) {
+const rect = element.getBoundingClientRect();
+return (
+rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.85 &&
+rect.bottom >= 0
+);
+}
+
+function animateOnScroll() {
+// Animate services, team members, gallery items, etc.
+const elements = document.querySelectorAll('.card-3d-effect, .hover-zoom, .grid > div');
+
+elements.forEach(el => {
+if (isInViewport(el) && !el.classList.contains('has-animated')) {
+el.classList.add('animate-fadeIn', 'has-animated');
+el.style.opacity = '1';
+}
+});
+}
+
+// Initialize scroll animation
+window.addEventListener('scroll', animateOnScroll);
+window.addEventListener('load', animateOnScroll);
+
+// Color mode toggle button (add at the bottom right)
+const colorModeToggle = document.createElement('button');
+colorModeToggle.className = 'fixed bottom-6 right-6 z-50 w-14 h-14 bg-white rounded-full shadow-xl flex items-center justify-center hover:shadow-2xl transition transform hover:scale-110';
+colorModeToggle.innerHTML = '<i class="fas fa-paint-brush text-2xl text-aussie-purple"></i>';
+document.body.appendChild(colorModeToggle);
+
+// Color mode variables
+const colorSchemes = [
+// Default scheme (no change)
+{},
+// Neon Night scheme
+{
+'--aussie-green': '#0AFF0A',
+'--aussie-gold': '#FFD700',
+'--aussie-blue': '#00FFFF',
+'--aussie-red': '#FF2D55',
+'--aussie-purple': '#D442FF',
+'--aussie-orange': '#FF7F00',
+'--aussie-pink': '#FF36F0',
+'--aussie-teal': '#00FFDB',
+},
+// Pastel Dream scheme
+{
+'--aussie-green': '#98FB98',
+'--aussie-gold': '#FFEEAD',
+'--aussie-blue': '#AEC6CF',
+'--aussie-red': '#FFB3BA',
+'--aussie-purple': '#DDA0DD',
+'--aussie-orange': '#FFCC99',
+'--aussie-pink': '#FFBFD3',
+'--aussie-teal': '#B0E0E6',
+}
+];
+
+let currentColorScheme = 0;
+
+colorModeToggle.addEventListener('click', () => {
+currentColorScheme = (currentColorScheme + 1) % colorSchemes.length;
+
+// Apply the new color scheme
+const root = document.documentElement;
+
+if (currentColorScheme === 0) {
+// Reset to default
+root.style.setProperty('--aussie-green', '#00D16E');
+root.style.setProperty('--aussie-gold', '#FFD700');
+root.style.setProperty('--aussie-blue', '#00A8FF');
+root.style.setProperty('--aussie-red', '#FF4D6D');
+root.style.setProperty('--aussie-purple', '#B347EA');
+root.style.setProperty('--aussie-orange', '#FF8A00');
+root.style.setProperty('--aussie-pink', '#FF5EDF');
+root.style.setProperty('--aussie-teal', '#00D4C8');
+} else {
+// Apply the selected scheme
+const scheme = colorSchemes[currentColorScheme];
+for (const [property, value] of Object.entries(scheme)) {
+root.style.setProperty(property, value);
+}
+}
+
+// Show a small animation
+createConfetti(colorModeToggle, 20, 1000);
+});
+
+// Add floating paint brush cursor effect
+const paintCursor = document.createElement('div');
+paintCursor.className = 'fixed pointer-events-none w-8 h-8 rounded-full z-50 mix-blend-multiply transition-transform duration-200';
+paintCursor.style.transform = 'translate(-50%, -50%)';
+paintCursor.style.display = 'none';
+document.body.appendChild(paintCursor);
+
+let cursorTimeout;
+document.addEventListener('mousemove', (e) => {
+clearTimeout(cursorTimeout);
+
+// Set color based on position
+const hue = (e.clientX / window.innerWidth) * 360;
+paintCursor.style.backgroundColor = `hsla(${hue}, 100%, 50%, 0.5)`;
+paintCursor.style.display = 'block';
+paintCursor.style.left = `${e.clientX}px`;
+paintCursor.style.top = `${e.clientY}px`;
+paintCursor.style.transform = 'translate(-50%, -50%) scale(1)';
+
+// Hide the cursor after 2 seconds of inactivity
+cursorTimeout = setTimeout(() => {
+paintCursor.style.transform = 'translate(-50%, -50%) scale(0)';
+}, 2000);
+});
+
+// Ripple effect on click
+document.addEventListener('click', (e) => {
+const ripple = document.createElement('div');
+const hue = (e.clientX / window.innerWidth) * 360;
+
+ripple.className = 'fixed pointer-events-none rounded-full z-40';
+ripple.style.left = `${e.clientX}px`;
+ripple.style.top = `${e.clientY}px`;
+ripple.style.transform = 'translate(-50%, -50%) scale(0)';
+ripple.style.backgroundColor = `hsla(${hue}, 100%, 50%, 0.3)`;
+
+document.body.appendChild(ripple);
+
+// Animate the ripple
+ripple.animate([
+{ transform: 'translate(-50%, -50%) scale(0)', opacity: 1 },
+{ transform: 'translate(-50%, -50%) scale(20)', opacity: 0 }
+], {
+duration: 1000,
+easing: 'cubic-bezier(0.25, 1, 0.5, 1)'
+});
+
+// Remove the ripple after animation
+setTimeout(() => {
+ripple.remove();
+}, 1000);
+});
+</script>
+</body>
+</html>
